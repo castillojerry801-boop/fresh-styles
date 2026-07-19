@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "SERVICES", href: "#services" },
@@ -23,24 +24,22 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-[#2a2a2a]" : "bg-transparent"
+        scrolled
+          ? "bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-[#2a2a2a]"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[70px]">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-[52px] h-[52px] rounded-full border-2 border-[#C8952A] flex flex-col items-center justify-center bg-[#1a1a1a]">
-            <span className="text-[#C8952A] text-[8px] font-bold leading-tight tracking-wider font-[family-name:var(--font-oswald)]">
-              FRESH
-            </span>
-            <span className="text-white text-[9px] font-bold leading-tight tracking-widest font-[family-name:var(--font-oswald)]">
-              STYLES
-            </span>
-            <div className="w-full h-[1px] bg-[#C8952A] my-[1px]" />
-            <span className="text-[#C8952A] text-[6px] tracking-[2px] font-[family-name:var(--font-oswald)]">
-              BARBERSHOP
-            </span>
-          </div>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/images/logo.jpeg"
+            alt="Fresh Styles Barbershop"
+            width={90}
+            height={50}
+            className="object-contain h-[50px] w-auto"
+            priority
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -58,7 +57,7 @@ export default function Navbar() {
 
         {/* Book Now */}
         <a
-          href="#services"
+          href="tel:3853938418"
           className="hidden md:inline-block bg-[#C8952A] text-black text-xs font-bold tracking-widest px-5 py-3 hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
         >
           BOOK NOW
@@ -90,7 +89,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#services"
+            href="tel:3853938418"
             className="bg-[#C8952A] text-black text-xs font-bold tracking-widest px-5 py-3 text-center hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
           >
             BOOK NOW

@@ -1,6 +1,19 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+
+const barbers = [
+  { image: "/images/barber-2.jpeg", name: "JUAN", role: "OWNER" },
+];
+
+const galleryImages = [
+  { src: "/images/barber-1.jpeg", alt: "Barber at work" },
+  { src: "/images/gallery-1.jpeg", alt: "Fresh cut in progress" },
+  { src: "/images/barber-3.jpeg", alt: "Beard lineup" },
+  { src: "/images/gallery-2.png", alt: "Precision fade" },
+  { src: "/images/gallery-3.jpeg", alt: "Cut in progress" },
+];
 
 export default function Home() {
   return (
@@ -11,28 +24,113 @@ export default function Home() {
 
       {/* Our Team */}
       <section id="team" className="py-24 bg-[#111111]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-10 h-[1px] bg-[#C8952A]" />
-            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
-              THE CREW
-            </span>
-            <div className="w-10 h-[1px] bg-[#C8952A]" />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+              <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+                THE CREW
+              </span>
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+            </div>
+            <h2
+              className="font-[family-name:var(--font-oswald)] font-bold text-white"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            >
+              OUR TEAM
+            </h2>
+            <p className="text-gray-400 mt-4 text-sm">
+              Skilled hands. Sharp lines. Every time.
+            </p>
           </div>
-          <h2
-            className="font-[family-name:var(--font-oswald)] font-bold text-white"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-          >
-            OUR TEAM
-          </h2>
-          <p className="text-gray-400 mt-4 text-sm">
-            Coming soon — meet the barbers behind the cuts.
+
+          <div className="flex justify-center">
+            {barbers.map((barber, i) => (
+              <div key={i} className="group relative w-full max-w-sm h-[520px] overflow-hidden">
+                <Image
+                  src={barber.image}
+                  alt={barber.name ?? "Fresh Styles barber"}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/10 to-transparent" />
+                {barber.name && (
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="w-8 h-[2px] bg-[#C8952A] mb-2" />
+                    {barber.role && (
+                      <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
+                        {barber.role}
+                      </p>
+                    )}
+                    <p className="text-white text-xl font-bold tracking-widest font-[family-name:var(--font-oswald)]">
+                      {barber.name}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-gray-600 text-xs tracking-widest mt-8 font-[family-name:var(--font-oswald)]">
+            MORE BARBERS COMING SOON
           </p>
         </div>
       </section>
 
+      {/* Gallery */}
+      <section className="py-24 bg-[#0d0d0d]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+              <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+                THE WORK
+              </span>
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+            </div>
+            <h2
+              className="font-[family-name:var(--font-oswald)] font-bold text-white"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            >
+              FRESH CUTS
+            </h2>
+          </div>
+
+          {/* Row 1 — 3 photos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            {galleryImages.slice(0, 3).map((img, i) => (
+              <div key={i} className="relative h-[380px] overflow-hidden group">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
+              </div>
+            ))}
+          </div>
+          {/* Row 2 — 2 photos centered */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-2/3 mx-auto">
+            {galleryImages.slice(3).map((img, i) => (
+              <div key={i} className="relative h-[380px] overflow-hidden group">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-[#0d0d0d]">
+      <section id="how-it-works" className="py-24 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="w-10 h-[1px] bg-[#C8952A]" />
@@ -66,7 +164,7 @@ export default function Home() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="text-[#C8952A] text-4xl font-bold font-[family-name:var(--font-oswald)] mb-3">
+                <div className="text-[#C8952A] text-5xl font-bold font-[family-name:var(--font-oswald)] mb-3">
                   {item.step}
                 </div>
                 <h3 className="text-white font-bold tracking-widest mb-2 font-[family-name:var(--font-oswald)]">
@@ -80,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 bg-[#111111]">
+      <section id="faq" className="py-24 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="w-10 h-[1px] bg-[#C8952A]" />
@@ -103,7 +201,7 @@ export default function Home() {
               },
               {
                 q: "How do I book an appointment?",
-                a: "Click any 'Book' link on this page to schedule online. It only takes a minute.",
+                a: "Call or text us at (385) 393-8418 to schedule your cut.",
               },
               {
                 q: "What payment methods do you accept?",
@@ -111,7 +209,7 @@ export default function Home() {
               },
               {
                 q: "Where are you located?",
-                a: "We're in Layton, Utah. Exact address is in the contact section below.",
+                a: "We're in Layton, Utah. See the contact section below for our full address.",
               },
             ].map((item) => (
               <div key={item.q} className="border border-[#2a2a2a] p-6 bg-[#161616]">
@@ -126,47 +224,161 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 bg-[#0d0d0d]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-10 h-[1px] bg-[#C8952A]" />
-            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
-              REACH OUT
-            </span>
-            <div className="w-10 h-[1px] bg-[#C8952A]" />
+      <section id="contact" className="py-24 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+              <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+                REACH OUT
+              </span>
+              <div className="w-10 h-[1px] bg-[#C8952A]" />
+            </div>
+            <h2
+              className="font-[family-name:var(--font-oswald)] font-bold text-white"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            >
+              CONTACT
+            </h2>
           </div>
-          <h2
-            className="font-[family-name:var(--font-oswald)] font-bold text-white"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-          >
-            CONTACT
-          </h2>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { label: "LOCATION", value: "Layton, Utah" },
-              { label: "HOURS", value: "Mon–Sat: 9AM–7PM\nSun: 10AM–5PM" },
-              { label: "BOOK ONLINE", value: "freshstylesbarbershop.com" },
-            ].map((item) => (
-              <div key={item.label} className="border border-[#2a2a2a] p-8 bg-[#161616]">
-                <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
-                  {item.label}
-                </div>
-                <p className="text-white text-sm whitespace-pre-line">{item.value}</p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            {/* Shop photos */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative h-[260px] overflow-hidden">
+                <Image
+                  src="/images/storefront.jpeg"
+                  alt="Fresh Styles Barbershop storefront"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
-            ))}
+              <div className="relative h-[260px] overflow-hidden">
+                <Image
+                  src="/images/shop-sign.jpeg"
+                  alt="Fresh Styles Barbershop sign"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+
+            {/* Info cards */}
+            <div className="flex flex-col gap-4">
+              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+                <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
+                  PHONE
+                </div>
+                <a
+                  href="tel:3853938418"
+                  className="text-white text-xl font-[family-name:var(--font-oswald)] font-bold hover:text-[#C8952A] transition-colors"
+                >
+                  (385) 393-8418
+                </a>
+              </div>
+              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+                <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
+                  LOCATION
+                </div>
+                <p className="text-white text-sm">Layton, Utah</p>
+              </div>
+              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+                <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
+                  HOURS
+                </div>
+                <p className="text-white text-sm whitespace-pre-line">
+                  {"Mon–Sat: 9AM–7PM\nSun: 10AM–5PM"}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#2a2a2a] py-8 bg-[#0d0d0d]">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-[family-name:var(--font-oswald)] text-gray-500 text-sm tracking-widest">
-            FRESH STYLES BARBERSHOP
-          </span>
-          <span className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Fresh Styles Barbershop · Layton, Utah · Est. 2021
-          </span>
+      <footer className="border-t border-[#2a2a2a] bg-[#0d0d0d]">
+        {/* Social media bar */}
+        <div className="border-b border-[#2a2a2a] py-8">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-5">
+            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+              FOLLOW US
+            </span>
+            <div className="flex items-center gap-6">
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/freshstylesUT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="group-hover:text-[#C8952A] transition-colors"
+                >
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+                <span className="text-xs tracking-widest font-[family-name:var(--font-oswald)]">
+                  FACEBOOK
+                </span>
+              </a>
+
+              <div className="w-[1px] h-5 bg-[#2a2a2a]" />
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/freshstyles.ut"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="group-hover:text-[#C8952A] transition-colors"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+                <span className="text-xs tracking-widest font-[family-name:var(--font-oswald)]">
+                  INSTAGRAM
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="py-8">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <Image
+              src="/images/logo-badge.jpeg"
+              alt="Fresh Styles Barbershop"
+              width={72}
+              height={72}
+              className="object-contain rounded"
+            />
+            <span className="text-gray-600 text-xs text-center">
+              © {new Date().getFullYear()} Fresh Styles Barbershop · Layton, Utah · Est. 2021
+            </span>
+            <a
+              href="tel:3853938418"
+              className="text-[#C8952A] text-sm font-[family-name:var(--font-oswald)] tracking-widest hover:text-[#D4A843] transition-colors"
+            >
+              (385) 393-8418
+            </a>
+          </div>
         </div>
       </footer>
     </main>

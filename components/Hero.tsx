@@ -1,16 +1,22 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0d0d0d]">
-        {/* Dark overlay gradient from left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/85 to-[#0d0d0d]/40 z-10" />
-        {/* Placeholder barber image area */}
-        <div className="absolute right-0 top-0 w-[55%] h-full bg-[#111111] flex items-center justify-center">
-          <div className="text-[#2a2a2a] text-xs tracking-widest font-[family-name:var(--font-oswald)]">
-            [ BARBER PHOTO ]
-          </div>
-        </div>
+      {/* Background photo — B&W chairs with dark tint */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-bg.jpeg"
+          alt="Fresh Styles Barbershop interior"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={90}
+        />
+        {/* Dark tint overlay — subtle, not dramatic */}
+        <div className="absolute inset-0 bg-[#0d0d0d]/72" />
+        {/* Extra left fade so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/90 via-[#0d0d0d]/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -48,7 +54,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap gap-4">
           <a
-            href="#services"
+            href="tel:3853938418"
             className="bg-[#C8952A] text-black text-xs font-bold tracking-widest px-8 py-4 hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
           >
             BOOK YOUR CUT
