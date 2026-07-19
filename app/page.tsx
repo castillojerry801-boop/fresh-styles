@@ -13,10 +13,10 @@ const barbers = [
 ];
 
 const galleryImages = [
-  { src: "/images/barber-1.jpeg", alt: "Barber at work" },
-  { src: "/images/gallery-1.jpeg", alt: "Fresh cut in progress" },
+  { src: "/images/barber-3.jpeg", alt: "Barber at work" },
+  { src: "/images/barber-juan.jpeg", alt: "Juan cutting hair" },
   { src: "/images/gallery-2.png", alt: "Precision fade" },
-  { src: "/images/gallery-3.jpeg", alt: "Cut in progress" },
+  { src: "/images/barber-kesean.jpeg", alt: "Kesean at work" },
 ];
 
 export default function Home() {
@@ -160,7 +160,8 @@ export default function Home() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
