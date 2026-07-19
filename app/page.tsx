@@ -4,13 +4,17 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 
 const barbers = [
-  { image: "/images/barber-2.jpeg", name: "JUAN", role: "OWNER" },
+  { image: "/images/barber-juan.jpeg", name: "JUAN", role: "OWNER", booksy: "https://booksy.com/en-us/493423_juan-ortiz-fresh-styles_barber-shop_37712_layton#ba_s=sr_1" },
+  { image: "/images/barber-3.jpeg", name: "NICK", role: "BARBER", booksy: "https://booksy.com/en-us/1105531_nick-the-barber_barber-shop_37712_layton#ba_s=sgso_1" },
+  { image: "/images/barber-kesean.jpeg", name: "KESEAN", role: "BARBER", booksy: "https://booksy.com/en-us/892376_kesean-tapia_barber-shop_37712_layton#ba_s=sgso_1" },
+  { image: "/images/barber-alonzo.jpeg", name: "ALONZO", role: "BARBER", booksy: "https://booksy.com/en-us/1120775_alonzo-rivera_barber-shop_37712_layton#ba_s=sr_1" },
+  { image: null, name: "MARIO", role: "BARBER", booksy: "https://booksy.com/en-us/1242336_mario_barber-shop_37712_layton#ba_s=sr_1" },
+  { image: null, name: "ANGELO", role: "BARBER", booksy: "https://booksy.com/en-us/801634_angelo-fresh-styles-barbershop_barber-shop_37712_layton#ba_s=sr_1" },
 ];
 
 const galleryImages = [
   { src: "/images/barber-1.jpeg", alt: "Barber at work" },
   { src: "/images/gallery-1.jpeg", alt: "Fresh cut in progress" },
-  { src: "/images/barber-3.jpeg", alt: "Beard lineup" },
   { src: "/images/gallery-2.png", alt: "Precision fade" },
   { src: "/images/gallery-3.jpeg", alt: "Cut in progress" },
 ];
@@ -20,6 +24,31 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+
+      {/* Award banner */}
+      <div className="bg-[#111111] border-y border-[#2a2a2a] py-8">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Image
+            src="/images/award.jpeg"
+            alt="Best of Davis County 2025 - 1st Place"
+            width={90}
+            height={90}
+            className="object-contain"
+          />
+          <div>
+            <p className="text-[10px] tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
+              STANDARD-EXAMINER · READERS CHOICE AWARDS
+            </p>
+            <p className="text-white text-2xl font-bold tracking-widest font-[family-name:var(--font-oswald)] leading-tight">
+              BEST OF DAVIS COUNTY 2025
+            </p>
+            <p className="text-gray-400 text-sm mt-1">
+              Voted #1 Barbershop in Davis County
+            </p>
+          </div>
+        </div>
+      </div>
+
       <Services />
 
       {/* Our Team */}
@@ -44,36 +73,64 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex justify-center">
-            {barbers.map((barber, i) => (
-              <div key={i} className="group relative w-full max-w-sm h-[520px] overflow-hidden">
-                <Image
-                  src={barber.image}
-                  alt={barber.name ?? "Fresh Styles barber"}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 384px"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/10 to-transparent" />
-                {barber.name && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {barbers.map((barber, i) => {
+              const Card = barber.image ? (
+                <div className="group relative w-full h-[520px] overflow-hidden">
+                  <Image
+                    src={barber.image}
+                    alt={barber.name ?? "Fresh Styles barber"}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-8 h-[2px] bg-[#C8952A] mb-2" />
-                    {barber.role && (
-                      <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
-                        {barber.role}
-                      </p>
-                    )}
+                    <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
+                      {barber.role}
+                    </p>
                     <p className="text-white text-xl font-bold tracking-widest font-[family-name:var(--font-oswald)]">
                       {barber.name}
                     </p>
+                    <span className="inline-block mt-3 text-[10px] tracking-widest text-black bg-[#C8952A] px-3 py-1 font-[family-name:var(--font-oswald)] font-bold group-hover:bg-[#D4A843] transition-colors">
+                      BOOK NOW →
+                    </span>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ) : (
+                <div className="group relative w-full h-[520px] overflow-hidden flex flex-col items-center justify-end hover:border-[#C8952A]/40 transition-colors">
+                  <Image
+                    src="/images/logo-badge.jpeg"
+                    alt="Fresh Styles Barbershop"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center opacity-30"
+                  />
+                  <div className="absolute inset-0 bg-[#0d0d0d]/70" />
+                  <div className="relative z-10 w-full p-6">
+                    <div className="w-8 h-[2px] bg-[#C8952A] mb-2" />
+                    <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
+                      {barber.role}
+                    </p>
+                    <p className="text-white text-xl font-bold tracking-widest font-[family-name:var(--font-oswald)] mb-3">
+                      {barber.name}
+                    </p>
+                    <span className="inline-block text-[10px] tracking-widest text-black bg-[#C8952A] px-4 py-2 font-[family-name:var(--font-oswald)] font-bold group-hover:bg-[#D4A843] transition-colors">
+                      BOOK NOW →
+                    </span>
+                  </div>
+                </div>
+              );
+              return barber.booksy ? (
+                <a key={i} href={barber.booksy} target="_blank" rel="noopener noreferrer">
+                  {Card}
+                </a>
+              ) : (
+                <div key={i}>{Card}</div>
+              );
+            })}
           </div>
-          <p className="text-center text-gray-600 text-xs tracking-widest mt-8 font-[family-name:var(--font-oswald)]">
-            MORE BARBERS COMING SOON
-          </p>
         </div>
       </section>
 
@@ -96,30 +153,14 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Row 1 — 3 photos */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            {galleryImages.slice(0, 3).map((img, i) => (
-              <div key={i} className="relative h-[380px] overflow-hidden group">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {galleryImages.map((img, i) => (
+              <div key={i} className="relative h-[400px] overflow-hidden group">
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
-              </div>
-            ))}
-          </div>
-          {/* Row 2 — 2 photos centered */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-2/3 mx-auto">
-            {galleryImages.slice(3).map((img, i) => (
-              <div key={i} className="relative h-[380px] overflow-hidden group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
