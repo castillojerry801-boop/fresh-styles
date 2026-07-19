@@ -1,65 +1,174 @@
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <Navbar />
+      <Hero />
+      <Services />
+
+      {/* Our Team */}
+      <section id="team" className="py-24 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+              THE CREW
+            </span>
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+          </div>
+          <h2
+            className="font-[family-name:var(--font-oswald)] font-bold text-white"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+          >
+            OUR TEAM
+          </h2>
+          <p className="text-gray-400 mt-4 text-sm">
+            Coming soon — meet the barbers behind the cuts.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="py-24 bg-[#0d0d0d]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+              SIMPLE PROCESS
+            </span>
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+          </div>
+          <h2
+            className="font-[family-name:var(--font-oswald)] font-bold text-white"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            HOW IT WORKS
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
+            {[
+              {
+                step: "01",
+                title: "BOOK",
+                desc: "Choose your service and pick a time that works for you.",
+              },
+              {
+                step: "02",
+                title: "SHOW UP",
+                desc: "Walk in, relax, and let us handle the rest.",
+              },
+              {
+                step: "03",
+                title: "LEAVE FRESH",
+                desc: "Walk out with a clean, sharp look every time.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="text-[#C8952A] text-4xl font-bold font-[family-name:var(--font-oswald)] mb-3">
+                  {item.step}
+                </div>
+                <h3 className="text-white font-bold tracking-widest mb-2 font-[family-name:var(--font-oswald)]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-24 bg-[#111111]">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+              GOT QUESTIONS
+            </span>
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+          </div>
+          <h2
+            className="font-[family-name:var(--font-oswald)] font-bold text-white text-center"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+          >
+            FAQ
+          </h2>
+          <div className="mt-12 flex flex-col gap-4">
+            {[
+              {
+                q: "Do you take walk-ins?",
+                a: "Yes! Walk-ins are always welcome, but booking ahead guarantees your spot.",
+              },
+              {
+                q: "How do I book an appointment?",
+                a: "Click any 'Book' link on this page to schedule online. It only takes a minute.",
+              },
+              {
+                q: "What payment methods do you accept?",
+                a: "We accept cash, card, Venmo, and CashApp.",
+              },
+              {
+                q: "Where are you located?",
+                a: "We're in Layton, Utah. Exact address is in the contact section below.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-[#2a2a2a] p-6 bg-[#161616]">
+                <h4 className="font-[family-name:var(--font-oswald)] font-semibold tracking-wide text-white mb-2">
+                  {item.q}
+                </h4>
+                <p className="text-gray-400 text-sm">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 bg-[#0d0d0d]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+            <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
+              REACH OUT
+            </span>
+            <div className="w-10 h-[1px] bg-[#C8952A]" />
+          </div>
+          <h2
+            className="font-[family-name:var(--font-oswald)] font-bold text-white"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+          >
+            CONTACT
+          </h2>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              { label: "LOCATION", value: "Layton, Utah" },
+              { label: "HOURS", value: "Mon–Sat: 9AM–7PM\nSun: 10AM–5PM" },
+              { label: "BOOK ONLINE", value: "freshstylesbarbershop.com" },
+            ].map((item) => (
+              <div key={item.label} className="border border-[#2a2a2a] p-8 bg-[#161616]">
+                <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
+                  {item.label}
+                </div>
+                <p className="text-white text-sm whitespace-pre-line">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-[#2a2a2a] py-8 bg-[#0d0d0d]">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="font-[family-name:var(--font-oswald)] text-gray-500 text-sm tracking-widest">
+            FRESH STYLES BARBERSHOP
+          </span>
+          <span className="text-gray-600 text-xs">
+            © {new Date().getFullYear()} Fresh Styles Barbershop · Layton, Utah · Est. 2021
+          </span>
+        </div>
+      </footer>
+    </main>
   );
 }
