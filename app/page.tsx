@@ -422,6 +422,28 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        {/* Powered by */}
+        <div className="border-t border-[#1a1a1a] py-4">
+          <a
+            href="https://cg-workshop.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-3 opacity-50 hover:opacity-80 transition-opacity"
+          >
+            <Image
+              src="/images/cg-workshop.jpeg"
+              alt="Common Ground Workshop"
+              width={52}
+              height={52}
+              className="object-contain rounded-full"
+              style={{ filter: "invert(1)" }}
+            />
+            <span className="text-[10px] tracking-[3px] text-gray-400 font-[family-name:var(--font-oswald)]">
+              COMMON GROUND WORKSHOP
+            </span>
+          </a>
+        </div>
       </footer>
     </main>
   );
