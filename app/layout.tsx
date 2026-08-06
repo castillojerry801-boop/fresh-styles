@@ -63,9 +63,10 @@ const localBusinessSchema = {
   telephone: "+13853938418",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Hill Field Road",
+    streetAddress: "2704 N Hill Field Rd Ste 4",
     addressLocality: "Layton",
     addressRegion: "UT",
+    postalCode: "84041",
     addressCountry: "US",
   },
   openingHoursSpecification: [

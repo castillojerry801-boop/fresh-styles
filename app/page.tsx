@@ -273,7 +273,7 @@ export default function Home() {
                 <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
                   LOCATION
                 </div>
-                <p className="text-white text-sm">Layton, Utah</p>
+                <p className="text-white text-sm">2704 N Hill Field Rd, Ste 4<br />Layton, UT 84041</p>
               </div>
               <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
                 <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
