@@ -98,7 +98,7 @@ export default function Home() {
               ) : (
                 <div className="group relative w-full h-[520px] overflow-hidden flex flex-col items-center justify-end hover:border-[#C8952A]/40 transition-colors">
                   <Image
-                    src="/images/logo-badge.jpeg"
+                    src="/images/logo-2025.png"
                     alt="Fresh Styles Barbershop"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -366,7 +366,7 @@ export default function Home() {
         <div className="py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <Image
-              src="/images/logo-badge.jpeg"
+              src="/images/logo-2025.png"
               alt="Fresh Styles Barbershop"
               width={72}
               height={72}

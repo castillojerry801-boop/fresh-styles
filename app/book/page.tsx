@@ -49,7 +49,7 @@ export default function BookPage() {
                   />
                 ) : (
                   <Image
-                    src="/images/logo-badge.jpeg"
+                    src="/images/logo-2025.png"
                     alt="Fresh Styles Barbershop"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

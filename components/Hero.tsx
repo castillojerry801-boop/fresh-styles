@@ -46,9 +46,10 @@ export default function Hero() {
         </h1>
 
         {/* Subtext */}
-        <p className="text-gray-300 text-base max-w-sm mb-10 leading-relaxed">
-          Layton&apos;s premier destination for precision haircuts, clean fades, and beard
-          services. Walk in looking good. Leave looking great.
+        <p className="text-gray-300 text-base max-w-lg mb-10 leading-relaxed">
+          Layton&apos;s Premier Barbershop. Conveniently located on Hill Field Road, minutes
+          from the Hill Air Force Base gate. From clean fades and sharp cuts to detailed beard
+          services, we deliver quality work that keeps you looking fresh and confident.
         </p>
 
         {/* CTAs */}

@@ -28,15 +28,15 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[70px]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[90px]">
         {/* Logo */}
         <a href="#" className="flex items-center">
           <Image
-            src="/images/logo.jpeg"
+            src="/images/logo-2025.png"
             alt="Fresh Styles Barbershop"
             width={90}
-            height={50}
-            className="object-contain h-[50px] w-auto"
+            height={90}
+            className="object-contain h-[90px] w-[90px]"
             priority
           />
         </a>
