@@ -5,10 +5,10 @@ import Services from "@/components/Services";
 import { barbers } from "@/lib/barbers";
 
 const galleryImages = [
-  { src: "/images/barber-3.jpeg", alt: "Barber at work" },
-  { src: "/images/barber-juan.jpeg", alt: "Juan cutting hair" },
-  { src: "/images/gallery-2.png", alt: "Precision fade" },
-  { src: "/images/barber-kesean.jpeg", alt: "Kesean at work" },
+  { src: "/images/barber-3.jpeg", alt: "Barber at work", position: "object-center" },
+  { src: "/images/barber-juan.jpeg", alt: "Juan cutting hair", position: "object-center" },
+  { src: "/images/barber-mario.jpeg", alt: "Mario at work", position: "object-top" },
+  { src: "/images/barber-kesean.jpeg", alt: "Kesean at work", position: "object-center" },
 ];
 
 export default function Home() {
@@ -171,7 +171,7 @@ export default function Home() {
                   fill
                   quality={100}
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className={`object-cover ${img.position} group-hover:scale-105 transition-transform duration-500`}
                 />
                 <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
               </div>
