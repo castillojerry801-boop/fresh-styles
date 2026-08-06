@@ -4,12 +4,6 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import { barbers } from "@/lib/barbers";
 
-const galleryImages = [
-  { src: "/images/barber-3.jpeg", alt: "Barber at work", position: "object-center" },
-  { src: "/images/barber-juan.jpeg", alt: "Juan cutting hair", position: "object-center" },
-  { src: "/images/barber-mario.jpeg", alt: "Mario at work", position: "object-top" },
-  { src: "/images/barber-kesean.jpeg", alt: "Kesean at work", position: "object-center" },
-];
 
 export default function Home() {
   return (
@@ -139,43 +133,6 @@ export default function Home() {
                 <div key={i}>{Card}</div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="py-24 bg-[#0d0d0d]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-10 h-[1px] bg-[#C8952A]" />
-              <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
-                THE WORK
-              </span>
-              <div className="w-10 h-[1px] bg-[#C8952A]" />
-            </div>
-            <h2
-              className="font-[family-name:var(--font-oswald)] font-bold text-white"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-            >
-              FRESH CUTS
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {galleryImages.map((img, i) => (
-              <div key={i} className="relative h-[400px] overflow-hidden group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
-                  className={`object-cover ${img.position} group-hover:scale-105 transition-transform duration-500`}
-                />
-                <div className="absolute inset-0 bg-[#0d0d0d]/20 group-hover:bg-[#0d0d0d]/5 transition-colors" />
-              </div>
-            ))}
           </div>
         </div>
       </section>

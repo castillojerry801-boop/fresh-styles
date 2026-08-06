@@ -8,6 +8,7 @@ const navLinks = [
   { label: "OUR TEAM", href: "#team" },
   { label: "FAQ", href: "#faq" },
   { label: "CONTACT", href: "#contact" },
+  { label: "GALLERY", href: "/gallery" },
 ];
 
 export default function Navbar() {
@@ -22,13 +23,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-[#2a2a2a]"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[90px]">
+      <div className="max-w-7xl mx-auto pl-2 pr-6 flex items-center justify-between h-[90px]">
         {/* Logo */}
         <a href="#" className="flex items-center">
           <Image
