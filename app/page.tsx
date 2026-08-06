@@ -247,23 +247,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Shop photos */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-[260px] overflow-hidden">
-                <Image
-                  src="/images/storefront.jpeg"
-                  alt="Fresh Styles Barbershop storefront"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-              <div className="relative h-[260px] overflow-hidden">
-                <Image
-                  src="/images/shop-sign.jpeg"
-                  alt="Fresh Styles Barbershop sign"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
+            <div className="relative h-[400px] overflow-hidden">
+              <Image
+                src="/images/storefront.jpeg"
+                alt="Fresh Styles Barbershop storefront"
+                fill
+                className="object-cover object-top"
+              />
             </div>
 
             {/* Info cards */}
