@@ -380,7 +380,7 @@ export default function Home() {
             href="https://cg-workshop.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-3 opacity-50 hover:opacity-80 transition-opacity"
+            className="max-w-7xl mx-auto px-6 flex items-center justify-center opacity-50 hover:opacity-80 transition-opacity"
           >
             <Image
               src="/images/cg-workshop.jpeg"
@@ -390,9 +390,6 @@ export default function Home() {
               className="object-contain rounded-full"
               style={{ filter: "invert(1)" }}
             />
-            <span className="text-[10px] tracking-[3px] text-gray-400 font-[family-name:var(--font-oswald)]">
-              COMMON GROUND WORKSHOP
-            </span>
           </a>
         </div>
       </footer>
