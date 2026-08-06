@@ -56,7 +56,7 @@ export default function Navbar() {
 
         {/* Book Now */}
         <a
-          href="tel:3853938418"
+          href="/book"
           className="hidden md:inline-block bg-[#C8952A] text-black text-xs font-bold tracking-widest px-5 py-3 hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
         >
           BOOK NOW
@@ -88,7 +88,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="tel:3853938418"
+            href="/book"
             className="bg-[#C8952A] text-black text-xs font-bold tracking-widest px-5 py-3 text-center hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
           >
             BOOK NOW

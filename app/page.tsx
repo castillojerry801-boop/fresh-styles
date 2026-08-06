@@ -2,17 +2,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-
-const barbers = [
-  { image: "/images/barber-juan.jpeg", name: "JUAN", role: "OWNER", years: 5, booksy: "https://booksy.com/en-us/493423_juan-ortiz-fresh-styles_barber-shop_37712_layton#ba_s=sr_1" },
-  { image: "/images/barber-kesean.jpeg", name: "KESEAN", role: "BARBER", years: 4, booksy: "https://booksy.com/en-us/892376_kesean-tapia_barber-shop_37712_layton#ba_s=sgso_1" },
-  { image: "/images/barber-3.jpeg", name: "NICK", role: "BARBER", years: 3, booksy: "https://booksy.com/en-us/1105531_nick-the-barber_barber-shop_37712_layton#ba_s=sgso_1" },
-  { image: "/images/barber-alonzo.jpeg", name: "ALONZO", role: "BARBER", years: 3, booksy: "https://booksy.com/en-us/1120775_alonzo-rivera_barber-shop_37712_layton#ba_s=sr_1" },
-  { image: null, name: "MARIO", role: "BARBER", years: 2, booksy: "https://booksy.com/en-us/1242336_mario_barber-shop_37712_layton#ba_s=sr_1" },
-  { image: null, name: "ANGELO", role: "BARBER", years: 2, booksy: "https://booksy.com/en-us/801634_angelo-fresh-styles-barbershop_barber-shop_37712_layton#ba_s=sr_1" },
-  { image: null, name: "DANNY", role: "BARBER", years: 2, booksy: null },
-  { image: null, name: "MALCOM", role: "BARBER", years: 3, booksy: null },
-];
+import { barbers } from "@/lib/barbers";
 
 const galleryImages = [
   { src: "/images/barber-3.jpeg", alt: "Barber at work" },
@@ -214,7 +204,7 @@ export default function Home() {
               },
               {
                 q: "How do I book an appointment?",
-                a: "Call or text us at (385) 393-8418 to schedule your cut.",
+                a: "Call us at (385) 393-8418, book through Booksy, or click any barber in our team section to go straight to their booking page.",
               },
               {
                 q: "What payment methods do you accept?",

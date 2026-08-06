@@ -54,7 +54,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap gap-4">
           <a
-            href="tel:3853938418"
+            href="/book"
             className="bg-[#C8952A] text-black text-xs font-bold tracking-widest px-8 py-4 hover:bg-[#D4A843] transition-colors font-[family-name:var(--font-oswald)]"
           >
             BOOK YOUR CUT
