@@ -280,7 +280,7 @@ export default function Home() {
                   HOURS
                 </div>
                 <p className="text-white text-sm whitespace-pre-line">
-                  {"Mon–Sat: 9AM–7PM\nSun: 10AM–5PM"}
+                  {"Mon–Sat: 10AM–6PM\nSun: Closed"}
                 </p>
               </div>
             </div>
