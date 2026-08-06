@@ -1,11 +1,30 @@
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
 import { barbers } from "@/lib/barbers";
 
 export default function BookPage() {
   return (
     <main className="min-h-screen bg-[#0d0d0d]">
-      <Navbar />
+      {/* Simple header */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-7xl mx-auto pl-2 pr-6 flex items-center justify-between h-[90px]">
+          <a href="/">
+            <Image
+              src="/images/logo-2025.png"
+              alt="Fresh Styles Barbershop"
+              width={90}
+              height={90}
+              className="object-contain h-[90px] w-[90px]"
+              priority
+            />
+          </a>
+          <a
+            href="/"
+            className="text-xs tracking-widest text-gray-300 hover:text-white transition-colors font-[family-name:var(--font-oswald)]"
+          >
+            ← BACK
+          </a>
+        </div>
+      </header>
 
       <section className="pt-36 pb-24 px-6">
         <div className="max-w-7xl mx-auto">
