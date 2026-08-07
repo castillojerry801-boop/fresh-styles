@@ -79,7 +79,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-[#0d0d0d]">
+    <section id="services" className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -92,7 +92,7 @@ export default function Services() {
           </div>
           <h2
             className="font-[family-name:var(--font-oswald)] font-bold text-white leading-tight"
-            style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+            style={{ fontSize: "clamp(3rem, 8vw, 6rem)", WebkitTextStroke: "4px black", paintOrder: "stroke fill" }}
           >
             OUR SERVICES
           </h2>
@@ -106,7 +106,7 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-[#161616] border border-[#2a2a2a] p-10 flex flex-col items-center text-center hover:border-[#C8952A]/50 transition-colors group"
+              className="bg-black/50 backdrop-blur-sm border border-white/10 p-10 flex flex-col items-center text-center hover:border-[#C8952A]/50 transition-colors group"
             >
               <div className="text-[#C8952A] mb-6 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}

@@ -7,12 +7,37 @@ import { barbers } from "@/lib/barbers";
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      {/* Fixed background — chairs + logo stay put the whole time */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/images/hero-bg.jpeg"
+          alt="Fresh Styles Barbershop interior"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={90}
+        />
+        {/* Logo floats over chairs */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src="/images/logo-2025.png"
+            alt="Fresh Styles Barbershop"
+            width={560}
+            height={560}
+            className="object-contain w-[280px] sm:w-[400px] lg:w-[560px]"
+            priority
+          />
+        </div>
+      </div>
+
       <Navbar />
       <Hero />
 
+      <div className="relative z-10" style={{ background: "rgba(0,0,0,0.58)" }}>
+
       {/* Award banner */}
-      <div className="bg-[#111111] border-y border-[#2a2a2a] py-8">
+      <div className="border-y border-white/10 py-8">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-6">
           <Image
             src="/images/award.jpeg"
@@ -38,7 +63,7 @@ export default function Home() {
       <Services />
 
       {/* Our Team */}
-      <section id="team" className="py-24 bg-[#111111]">
+      <section id="team" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -50,7 +75,7 @@ export default function Home() {
             </div>
             <h2
               className="font-[family-name:var(--font-oswald)] font-bold text-white"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", WebkitTextStroke: "4px black", paintOrder: "stroke fill" }}
             >
               OUR TEAM
             </h2>
@@ -70,7 +95,7 @@ export default function Home() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-8 h-[2px] bg-[#C8952A] mb-2" />
                     <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
@@ -90,15 +115,7 @@ export default function Home() {
                   </div>
                 </div>
               ) : (
-                <div className="group relative w-full h-[520px] overflow-hidden flex flex-col items-center justify-end hover:border-[#C8952A]/40 transition-colors">
-                  <Image
-                    src="/images/logo-2025.png"
-                    alt="Fresh Styles Barbershop"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center opacity-30"
-                  />
-                  <div className="absolute inset-0 bg-[#0d0d0d]/70" />
+                <div className="group relative w-full h-[520px] overflow-hidden flex flex-col items-center justify-end bg-black/40 backdrop-blur-sm border border-white/10 hover:border-[#C8952A]/40 transition-colors">
                   <div className="relative z-10 w-full p-6">
                     <div className="w-8 h-[2px] bg-[#C8952A] mb-2" />
                     <p className="text-[10px] tracking-[3px] text-[#C8952A] font-[family-name:var(--font-oswald)] mb-1">
@@ -138,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 bg-[#0d0d0d]">
+      <section id="faq" className="py-24">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="w-10 h-[1px] bg-[#C8952A]" />
@@ -149,7 +166,7 @@ export default function Home() {
           </div>
           <h2
             className="font-[family-name:var(--font-oswald)] font-bold text-white text-center"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", WebkitTextStroke: "4px black", paintOrder: "stroke fill" }}
           >
             FAQ
           </h2>
@@ -172,7 +189,7 @@ export default function Home() {
                 a: "We're in Layton, Utah. See the contact section below for our full address.",
               },
             ].map((item) => (
-              <div key={item.q} className="border border-[#2a2a2a] p-6 bg-[#161616]">
+              <div key={item.q} className="bg-black/50 backdrop-blur-sm border border-white/10 p-6">
                 <h4 className="font-[family-name:var(--font-oswald)] font-semibold tracking-wide text-white mb-2">
                   {item.q}
                 </h4>
@@ -184,7 +201,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 bg-[#111111]">
+      <section id="contact" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -196,14 +213,14 @@ export default function Home() {
             </div>
             <h2
               className="font-[family-name:var(--font-oswald)] font-bold text-white"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", WebkitTextStroke: "4px black", paintOrder: "stroke fill" }}
             >
               CONTACT
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Shop photos */}
+            {/* Shop photo */}
             <div className="relative h-[400px] overflow-hidden">
               <Image
                 src="/images/storefront.jpeg"
@@ -215,7 +232,7 @@ export default function Home() {
 
             {/* Info cards */}
             <div className="flex flex-col gap-4">
-              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 p-8">
                 <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
                   PHONE
                 </div>
@@ -226,13 +243,13 @@ export default function Home() {
                   (385) 393-8418
                 </a>
               </div>
-              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 p-8">
                 <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
                   LOCATION
                 </div>
                 <p className="text-white text-sm">2704 N Hill Field Rd, Ste 4<br />Layton, UT 84041</p>
               </div>
-              <div className="border border-[#2a2a2a] p-8 bg-[#161616]">
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 p-8">
                 <div className="text-xs tracking-widest text-[#C8952A] mb-3 font-[family-name:var(--font-oswald)]">
                   HOURS
                 </div>
@@ -246,9 +263,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#2a2a2a] bg-[#0d0d0d]">
+      <footer className="bg-black/60 backdrop-blur-sm border-t border-white/10">
         {/* Social media bar */}
-        <div className="border-b border-[#2a2a2a] py-8">
+        <div className="border-b border-white/10 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-5">
             <span className="text-xs tracking-[4px] text-[#C8952A] font-[family-name:var(--font-oswald)]">
               FOLLOW US
@@ -276,7 +293,7 @@ export default function Home() {
                 </span>
               </a>
 
-              <div className="w-[1px] h-5 bg-[#2a2a2a]" />
+              <div className="w-[1px] h-5 bg-white/10" />
 
               {/* Instagram */}
               <a
@@ -319,7 +336,7 @@ export default function Home() {
               height={72}
               className="object-contain rounded"
             />
-            <span className="text-gray-600 text-xs text-center">
+            <span className="text-gray-400 text-xs text-center">
               © {new Date().getFullYear()} Fresh Styles Barbershop · Layton, Utah · Est. 2021
             </span>
             <a
@@ -332,7 +349,7 @@ export default function Home() {
         </div>
 
         {/* Powered by */}
-        <div className="border-t border-[#1a1a1a] py-4">
+        <div className="border-t border-white/10 py-4">
           <a
             href="https://cg-workshop.com"
             target="_blank"
@@ -350,6 +367,7 @@ export default function Home() {
           </a>
         </div>
       </footer>
+      </div>
     </main>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
 
 const navLinks = [
   { label: "SERVICES", href: "#services" },
@@ -12,32 +11,11 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50"
-    >
-      <div className="max-w-7xl mx-auto pl-2 pr-6 flex items-center justify-between h-[90px]">
-        {/* Logo */}
-        <a href="#" className="flex items-center">
-          <Image
-            src="/images/logo-2025.png"
-            alt="Fresh Styles Barbershop"
-            width={90}
-            height={90}
-            className="object-contain h-[90px] w-[90px]"
-            priority
-          />
-        </a>
-
+    <header className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(0,0,0,0.58)" }}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[70px]">
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -61,7 +39,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 ml-auto"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
