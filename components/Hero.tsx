@@ -19,7 +19,7 @@ export default function Hero() {
       <section className="relative z-10 min-h-screen flex items-center overflow-hidden">
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.50) 40%, rgba(0,0,0,0.58) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.58) 100%)" }}
         />
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
           <div className="flex items-center gap-3 mb-8">

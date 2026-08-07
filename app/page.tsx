@@ -10,11 +10,21 @@ export default function Home() {
     <main className="relative">
       {/* Fixed background — chairs + logo stay put the whole time */}
       <div className="fixed inset-0 z-0">
+        {/* Mobile: portrait interior shot */}
+        <Image
+          src="/images/hero-bg-mobile.png"
+          alt="Fresh Styles Barbershop interior"
+          fill
+          className="object-cover object-center block md:hidden"
+          priority
+          quality={90}
+        />
+        {/* Desktop: landscape chairs photo */}
         <Image
           src="/images/hero-bg.jpeg"
           alt="Fresh Styles Barbershop interior"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center hidden md:block"
           priority
           quality={90}
         />
