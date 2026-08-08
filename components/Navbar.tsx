@@ -7,7 +7,7 @@ const navLinks = [
   { label: "OUR TEAM", href: "#team" },
   { label: "FAQ", href: "#faq" },
   { label: "CONTACT", href: "#contact" },
-  { label: "GALLERY", href: "/gallery" },
+  { label: "PORTFOLIOS", href: "/gallery" },
 ];
 
 export default function Navbar() {
